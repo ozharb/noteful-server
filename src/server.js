@@ -1,6 +1,9 @@
 'use strict';
 const knex = require('knex');
 const app = require('./app');
+const pg = require('pg');
+
+pg.default.ssl = process.env.NODE_ENV === 'production';
 
 const { PORT, DATABASE_URL } = require('./config');
 const db = knex({
